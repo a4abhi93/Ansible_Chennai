@@ -1,0 +1,40 @@
+- hosts: 192.168.10.12
+  vars:
+    name: test
+  tasks:
+     - name: creating a file
+       file: path=/home/test.txt state=touch
+
+     - name: creating a directory
+       file: path=/home/newdir state=directory mode=775 owner=root
+
+     - name: creating multiple directories
+       file: path={{item}} state=directory
+       with_items:
+        - '/home/a1'
+        - '/home/a2'
+        - '/home/a3'
+
+     - name: copying file content
+       copy: content='hello world' dest=/home/test.txt
+
+     - name: archiving a file
+       archive:
+           path: /home/test.txt
+           dest: /home/test.zip
+           format: zip
+
+     - name: creating a user
+       user: name=test password=test shell=/bin/bash
+
+     - name: simple var exmaple
+       debug:
+           msg: '{{name}}'
+
+     - stat:
+         path: /home/test.txt
+       register: result
+
+     - debug:
+         msg: "Ansible File exists"
+       when: result.stat.exists

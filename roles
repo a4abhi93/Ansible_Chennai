@@ -1,0 +1,25 @@
+ansible-galaxy init /etc/ansible/roles/web --offline
+
+cat rolesplaybook.yml
+---
+
+
+ - hosts: rno-aet-dev01.rno.apple.com
+   roles:
+   - web
+
+L-156172675:web AR951919$ cd tasks
+L-156172675:tasks AR951919$ cat main.yml
+---
+# tasks file for /etc/ansible/roles/web    
+- name: Create User
+  user: name=arunnewuser password=arun shell=/bin/bash
+  notify:
+       - Do an echo
+
+
+L-156172675:web AR951919$ cd handlers
+L-156172675:playbook AR951919$ cat main.yml
+---
+- name: Do an echo
+     debug: msg="This will be printed"  

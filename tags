@@ -1,0 +1,18 @@
+
+- hosts: all
+  tasks:
+     - debug: msg="task 1 in includeFile"
+       tags:
+          - t1
+
+     - debug: msg="task 2 in includeFile"
+       tags:
+          - t2
+
+     - debug: msg="task 3 in includeFile"
+       tags:
+          - t3
+
+
+
+ansible-playbook tasksplaybook.yml -c ssh -K --tags "t1" -i ansible_hosts

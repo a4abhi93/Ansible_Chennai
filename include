@@ -1,0 +1,12 @@
+[root@AnsibleMaster ansible]# cat includeplaybook.yml
+- hosts: 192.168.10.11
+  tasks:
+      - include: tasksplaybook.yml
+
+
+[root@AnsibleMaster ansible]# cat tasksplaybook.yml
+- name: get kernel info
+  shell: uname -a
+  register: ps1
+- debug:
+    msg: "{{ ps1.stdout_lines }}"

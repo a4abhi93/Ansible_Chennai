@@ -1,0 +1,15 @@
+- hosts: all
+  vars:
+     name: test
+  tasks:
+     - name : simple variable example
+       debug:
+          msg: '{{ name }}'
+
+     - stat:
+         path: /home/newdir/test.txt
+       register: ps1
+
+     - debug:
+         msg: "file exists"
+       when: ps1.stat.exists

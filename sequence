@@ -1,0 +1,35 @@
+Parts of a playbook - yaml file, inventory file and ansible.cfg
+Indentation , yaml structure , play recap
+Playbook command line types ( —syntax-check , -c , -v , ssh  -K )
+become, become_user
+Command and shell 
+--list-hosts , —list-tasks
+
+Default inventory  , customised inventory , host groups , specific host , host pattern
+
+Failed_when: false, ignore_errors: yes
+
+Creating file , creating directory , creating multiple directories , copying file
+
+ archiving a file
+
+Creating user
+
+vars , Conditionals 
+
+tags
+
+Includeplaybook 
+
+Unreachable
+
+modules - package , service
+
+Roles
+
+
+Performance
+
+-f 10
+Pipelining = true
+Gather_timeout for large running playbook
